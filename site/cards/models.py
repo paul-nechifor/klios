@@ -2,12 +2,16 @@ from django.db import models
 
 
 class Card(models.Model):
-    pass
+    def __unicode__(self):
+        return self.content.front
 
 
 class CardTag(models.Model):
     card = models.ForeignKey(Card)
     name = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return self.name
 
 
 class CardContent(models.Model):
@@ -15,6 +19,8 @@ class CardContent(models.Model):
     front = models.TextField()
     back = models.TextField()
 
+    def __unicode__(self):
+        return self.front
 
 class CardAnswer(models.Model):
     card = models.ForeignKey(Card)
@@ -22,3 +28,6 @@ class CardAnswer(models.Model):
     start_time = models.TimeField(auto_now=True)
     end_time = models.TimeField()
     score = models.FloatField()
+
+    def __unicode__(self):
+        return '{} {}: {}'.format(card.content.front, start_time, answer)
