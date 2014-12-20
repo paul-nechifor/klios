@@ -1,13 +1,14 @@
 from django.db import models
 
 
+class Card(models.Model):
+    pass
+
+
 class CardContent(models.Model):
+    card = models.OneToOneField(Card, related_name='content')
     front = models.TextField()
     back = models.TextField()
-
-
-class Card(models.Model):
-    content = models.ForeignKey(CardContent)
 
 
 class CardAnswer(models.Model):
