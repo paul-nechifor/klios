@@ -22,12 +22,13 @@ class CardContent(models.Model):
     def __unicode__(self):
         return self.front
 
+
 class CardAnswer(models.Model):
     card = models.ForeignKey(Card)
-    answer = models.TextField()
+    answer = models.TextField(blank=True)
     start_time = models.TimeField(auto_now=True)
-    end_time = models.TimeField()
-    score = models.FloatField()
+    end_time = models.TimeField(null=True)
+    score = models.FloatField(null=True)
 
     def __unicode__(self):
         return '{} {}: {}'.format(card.content.front, start_time, answer)
