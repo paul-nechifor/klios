@@ -1,3 +1,5 @@
+import random
+
 from django.db import models
 
 
@@ -32,3 +34,13 @@ class CardAnswer(models.Model):
 
     def __unicode__(self):
         return '{} {}: {}'.format(card.content.front, start_time, answer)
+
+    @classmethod
+    def get_card_answer(cls):
+        try:
+            card_answer = CardAnswer.objects.filter(end_time=None)[0]
+        except CardAnswer.DoesNotExist:
+            card = random.choice(Card.objects.all())
+            card_answer = CardAnswer.objects.create(card=card)
+            card_answer.save()
+        return card_answer

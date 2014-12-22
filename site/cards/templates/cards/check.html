@@ -1,0 +1,10 @@
+{% extends 'cards/base.html' %}
+
+{% block content %}
+  {{ card.content.front }}
+  <form action='{% url 'cards:rate' %}' method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Submit</button>
+  </form>
+{% endblock content %}
