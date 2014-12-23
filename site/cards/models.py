@@ -33,12 +33,12 @@ class CardAnswer(models.Model):
     score = models.FloatField(null=True)
 
     def __unicode__(self):
-        return '{} {}: {}'.format(card.content.front, start_time, answer)
+        return '{} {}'.format(self.card.content.front, self.start_time)
 
     @classmethod
     def get_card_answer(cls):
         try:
-            card_answer = CardAnswer.objects.filter(end_time=None)[0]
+            card_answer = CardAnswer.objects.get(end_time=None)
         except CardAnswer.DoesNotExist:
             card = random.choice(Card.objects.all())
             card_answer = CardAnswer.objects.create(card=card)

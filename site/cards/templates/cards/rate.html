@@ -1,0 +1,12 @@
+{% extends 'cards/base.html' %}
+
+{% block content %}
+  <p>{{ card.content.front }}</p>
+  <p>Correct: {{ card.content.back }}</p>
+  <p>Your answer: {{ form.answer.value }}</p>
+  <form action='{% url 'cards:finish' %}' method='post'>
+    {% csrf_token %}
+    {{ score_form.as_p }}
+    <button>Submit</button>
+  </form>
+{% endblock content %}
