@@ -1,6 +1,9 @@
 import os
 from fabric.api import *
 
+root = os.path.dirname(os.path.realpath(__file__)) + '/..'
+
+
 @task
 def bootstrap():
     local('virtualenv env')
@@ -8,6 +11,8 @@ def bootstrap():
         local('pip install -r requirements/base.txt')
         local('site/manage.py migrate')
 
+
 @task
 def runserver():
-    local('. env/bin/activate && site/manage.py runserver')
+    with lcd(root):
+        local('. env/bin/activate && site/manage.py runserver')
