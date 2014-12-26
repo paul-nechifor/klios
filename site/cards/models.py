@@ -1,5 +1,6 @@
 import random
 
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -20,6 +21,7 @@ class CardContent(models.Model):
     card = models.OneToOneField(Card, related_name='content')
     front = models.TextField()
     back = models.TextField()
+    author = models.ForeignKey(User, null=True, blank=True)
 
     def __unicode__(self):
         return self.front
