@@ -5,10 +5,11 @@ from django.utils import timezone
 
 from .forms import CardAnswerForm, CardScoreForm
 from .models import CardAnswer
+from .utils import get_or_create_priority_card_answer
 
 
 def check(request):
-    card_answer = CardAnswer.get_card_answer()
+    card_answer = get_or_create_priority_card_answer()
     form = CardAnswerForm(instance=card_answer)
     return render(request, 'cards/check.html', {
         'card': card_answer.card,

@@ -1,5 +1,3 @@
-import random
-
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -32,17 +30,7 @@ class CardAnswer(models.Model):
     answer = models.TextField(blank=True)
     start_time = models.TimeField(auto_now=True)
     end_time = models.TimeField(null=True)
-    score = models.FloatField(null=True)
+    score = models.FloatField(null=True, default=0)
 
     def __unicode__(self):
         return '{} {}'.format(self.card.content.front, self.start_time)
-
-    @classmethod
-    def get_card_answer(cls):
-        try:
-            card_answer = CardAnswer.objects.get(end_time=None)
-        except CardAnswer.DoesNotExist:
-            card = random.choice(Card.objects.all())
-            card_answer = CardAnswer.objects.create(card=card)
-            card_answer.save()
-        return card_answer
