@@ -1,7 +1,9 @@
 {% extends 'cards/base.html' %}
 
 {% block content %}
-  {{ card.content.front }}
+  <div class='card-front'>
+    {{ card.content.front }}
+  </div>
   <form action='{% url 'cards:rate' %}' method='post'>
     {% csrf_token %}
     {{ form.as_p }}

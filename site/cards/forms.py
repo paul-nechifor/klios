@@ -4,15 +4,20 @@ from .models import CardAnswer
 
 
 class CardAnswerForm(forms.ModelForm):
-    id = forms.IntegerField(widget = forms.HiddenInput)
+    id = forms.IntegerField(widget=forms.HiddenInput)
+
     class Meta:
         model = CardAnswer
         fields = ['id', 'answer']
-        widgets = {'id': forms.HiddenInput()}
+        widgets = {
+            'id': forms.HiddenInput(),
+            'answer': forms.Textarea(attrs={'placeholder': 'Answer'}),
+        }
 
 
 class CardScoreForm(forms.ModelForm):
-    id = forms.IntegerField(widget = forms.HiddenInput)
+    id = forms.IntegerField(widget=forms.HiddenInput)
+
     class Meta:
         model = CardAnswer
         fields = ['id', 'score']

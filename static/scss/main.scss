@@ -1,7 +1,12 @@
 @import 'compass';
 
-$width: 400px;
 body {
-    width: $width;
-    @include border-radius(5px);
+    width: 600px;
+    margin: 0 auto;
+}
+
+.content {
+    label[for='id_answer'] {
+        display: none;
+    }
 }
