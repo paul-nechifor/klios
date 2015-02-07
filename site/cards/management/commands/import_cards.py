@@ -17,7 +17,7 @@ class Command(BaseCommand):
         file = open(options['input']).read()
         parts = (x.strip() for x in file.split('###'))
         parts = filter(lambda x: len(x) > 0 and x != '===', parts)
-        parts = map(lambda x: map(lambda y: y.strip(), x.split('===')), parts)
+        parts = (x.split('===') for x in parts)
 
         for part in parts:
             card = Card.objects.create()

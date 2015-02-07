@@ -21,7 +21,10 @@ class CardScoreForm(forms.ModelForm):
     class Meta:
         model = CardAnswer
         fields = ['id', 'score']
-        widgets = {'id': forms.HiddenInput()}
+        widgets = {
+            'id': forms.HiddenInput(),
+            'score': forms.HiddenInput(),
+        }
 
     def clean_score(self):
         score = self.cleaned_data['score']

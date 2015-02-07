@@ -21,13 +21,14 @@ code {
   }
   .card-front {
     margin: 20px 0 15px;
-    .panel-body > p:last-child {
-      margin-bottom: 0;
-    }
   }
   .card-front, .card-back {
     .panel-body {
       font-size: 16px;
+    }
+    .panel-body > p:last-child,
+    .panel-body > pre:last-child {
+      margin-bottom: 0;
     }
   }
 }
