@@ -1,12 +1,20 @@
 @import 'compass';
 
 body {
-    width: 600px;
-    margin: 0 auto;
+  width: 600px;
+  margin: 0 auto;
 }
 
 .content {
-    label[for='id_answer'] {
-        display: none;
-    }
+  label[for='id_answer'] {
+    display: none;
+  }
+  #id_answer {
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  .card-front {
+    margin: 20px 0 15px;
+    font-size: 16px;
+  }
 }

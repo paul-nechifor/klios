@@ -1,12 +1,14 @@
 {% extends 'cards/base.html' %}
 
 {% block content %}
-  <div class='card-front'>
-    {{ card.content.front }}
+  <div class='card-front panel panel-default'>
+    <div class='panel-body'>
+      {{ card.content.front }}
+    </div>
   </div>
   <form action='{% url 'cards:rate' %}' method='post'>
     {% csrf_token %}
     {{ form.as_p }}
-    <button>Submit</button>
+    <button class='btn btn-primary btn-block'>Submit</button>
   </form>
 {% endblock content %}
