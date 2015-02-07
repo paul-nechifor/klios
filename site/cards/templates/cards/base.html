@@ -1,4 +1,13 @@
 <!doctype html>
+{% load pipeline %}
 
-{% block content %}
-{% endblock content %}
+<html>
+  <head>
+    <title>Klios</title>
+    {% stylesheet 'main' %}
+  </head>
+  <body>
+    {% block content %}
+    {% endblock content %}
+  </body>
+</html>

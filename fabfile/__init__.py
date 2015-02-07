@@ -15,4 +15,5 @@ def bootstrap():
 @task
 def runserver():
     with lcd(root):
+        local('. env/bin/activate && site/manage.py collectstatic --noinput')
         local('. env/bin/activate && site/manage.py runserver')

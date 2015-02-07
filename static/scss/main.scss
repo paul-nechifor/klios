@@ -1,0 +1,7 @@
+@import 'compass';
+
+$width: 400px;
+body {
+    width: $width;
+    @include border-radius(5px);
+}
