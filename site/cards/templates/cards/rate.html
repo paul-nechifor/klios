@@ -3,14 +3,14 @@
 {% block content %}
   <div class='card-front panel panel-default'>
     <div class='panel-body'>
-      {{ card.content.front }}
+      {{ card.content.front|safe }}
     </div>
   </div>
 
-  <div class='panel panel-success'>
+  <div class='card-front panel panel-success'>
     <div class='panel-heading'>Correct answer</div>
     <div class='panel-body'>
-      <p>{{ card.content.back }}</p>
+      <p>{{ card.content.back|safe }}</p>
     </div>
   </div>
 

@@ -3,7 +3,7 @@
 {% block content %}
   <div class='card-front panel panel-default'>
     <div class='panel-body'>
-      {{ card.content.front }}
+      {{ card.content.front|safe }}
     </div>
   </div>
   <form action='{% url 'cards:rate' %}' method='post'>

@@ -1,3 +1,4 @@
 Django==1.7.1
 django-pipeline==1.4.4.1
 django-pipeline-compass==0.1.5
+mistune==0.5

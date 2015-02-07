@@ -1,5 +1,7 @@
 from optparse import make_option
 
+import mistune
+
 from django.core.management.base import BaseCommand
 
 from cards.models import Card, CardContent
@@ -22,7 +24,7 @@ class Command(BaseCommand):
             card.save()
             card_content = CardContent.objects.create(
                 card=card,
-                front=part[0],
-                back=part[1],
+                front=mistune.markdown(part[0]),
+                back=mistune.markdown(part[1]),
             )
             card_content.save()

@@ -5,6 +5,12 @@ body {
   margin: 0 auto;
 }
 
+code {
+  background: #f9f9f9;
+  color: inherit;
+  font-family: monospace;
+}
+
 .content {
   label[for='id_answer'] {
     display: none;
@@ -15,6 +21,13 @@ body {
   }
   .card-front {
     margin: 20px 0 15px;
-    font-size: 16px;
+    .panel-body > p:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .card-front, .card-back {
+    .panel-body {
+      font-size: 16px;
+    }
   }
 }
