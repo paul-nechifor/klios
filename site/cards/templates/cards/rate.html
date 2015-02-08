@@ -1,18 +1,9 @@
 {% extends 'cards/base.html' %}
+{% load card_faces %}
 
 {% block content %}
-  <div class='card-front panel panel-default'>
-    <div class='panel-body'>
-      {{ card.content.front|safe }}
-    </div>
-  </div>
-
-  <div class='card-back panel panel-success'>
-    <div class='panel-heading'>Correct answer</div>
-    <div class='panel-body'>
-      {{ card.content.back|safe }}
-    </div>
-  </div>
+  {% card_front card %}
+  {% card_back card %}
 
   {% if form.answer.value %}
     <div class='panel panel-default'>
