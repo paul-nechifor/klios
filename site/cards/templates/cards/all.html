@@ -1,0 +1,9 @@
+{% extends 'cards/base.html' %}
+{% load card_faces %}
+
+{% block content %}
+  {% for card in cards %}
+    {% card_front card %}
+    {% card_back card %}
+  {% endfor %}
+{% endblock content %}

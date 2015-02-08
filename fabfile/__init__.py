@@ -1,7 +1,7 @@
 import os
 from fabric.api import local, task, prefix, lcd
 
-root = os.path.dirname(os.path.realpath(__file__)) + '/..'
+root = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
 
 
 @task

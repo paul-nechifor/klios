@@ -1,10 +1,8 @@
-from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 
 from .forms import CardAnswerForm, CardScoreForm
-from .models import CardAnswer
+from .models import Card, CardAnswer
 from .utils import get_or_create_priority_card_answer
 
 
@@ -40,4 +38,8 @@ def finish(request):
             'card': card_answer.card,
             'score_form': score_form,
         })
-    return HttpResponseRedirect(reverse('cards:check'))
+    return redirect('cards:check')
+
+
+def all(request):
+    return render(request, 'cards/all.html', {'cards': Card.objects.all()})
