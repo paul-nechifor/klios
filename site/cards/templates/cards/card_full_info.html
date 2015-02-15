@@ -1,0 +1,9 @@
+{% load card_faces %}
+
+<div class='card card-full-info panel panel-default'>
+  <div class='panel-heading'>Card: {{ card.pk }}</div>
+  <div class='panel-body'>
+    {% card_front card %}
+    {% card_back card %}
+  </div>
+</div>

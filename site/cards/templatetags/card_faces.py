@@ -11,3 +11,8 @@ def card_front(card):
 @register.inclusion_tag('cards/card_back.html')
 def card_back(card):
     return {'card': card}
+
+
+@register.inclusion_tag('cards/card_full_info.html')
+def card_full_info(card):
+    return {'card': card}

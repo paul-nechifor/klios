@@ -3,7 +3,6 @@
 
 {% block content %}
   {% for card in cards %}
-    {% card_front card %}
-    {% card_back card %}
+    {% card_full_info card %}
   {% endfor %}
 {% endblock content %}
