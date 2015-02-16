@@ -14,5 +14,5 @@ def card_back(card):
 
 
 @register.inclusion_tag('cards/card_full_info.html')
-def card_full_info(card):
-    return {'card': card}
+def card_full_info(card_info):
+    return {'card_info': card_info}

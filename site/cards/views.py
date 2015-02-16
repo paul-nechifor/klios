@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 
 from .forms import CardAnswerForm, CardScoreForm
-from .models import Card, CardAnswer
-from .utils import get_or_create_priority_card_answer
+from .models import CardAnswer
+from .utils import get_or_create_priority_card_answer, get_card_infos
 
 
 def check(request):
@@ -42,4 +42,4 @@ def finish(request):
 
 
 def all(request):
-    return render(request, 'cards/all.html', {'cards': Card.objects.all()})
+    return render(request, 'cards/all.html', {'card_infos': get_card_infos()})

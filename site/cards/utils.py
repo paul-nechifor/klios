@@ -13,6 +13,21 @@ def get_or_create_priority_card_answer():
         return card_answer
 
 
+def get_card_infos():
+    return (get_card_info(x) for x in Card.objects.all())
+
+
+def get_card_info(card):
+    n_answers = card.answers.count()
+    n_correct = sum(1 for x in card.answers.all() if x.score >= 0.8)
+    return {
+        'card': card,
+        'n_answers': n_answers,
+        'n_correct': n_correct,
+        'n_wrong':  n_answers - n_correct,
+    }
+
+
 def _get_priority_card():
     # This is a terible way of doing it.
     box_scores = [1000, 500, 100, 50, 10]

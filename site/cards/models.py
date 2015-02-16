@@ -26,7 +26,7 @@ class CardContent(models.Model):
 
 
 class CardAnswer(models.Model):
-    card = models.ForeignKey(Card)
+    card = models.ForeignKey(Card, related_name='answers')
     answer = models.TextField(blank=True)
     start_time = models.TimeField(auto_now=True)
     end_time = models.TimeField(null=True)

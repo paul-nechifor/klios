@@ -2,7 +2,7 @@
 {% load card_faces %}
 
 {% block content %}
-  {% for card in cards %}
-    {% card_full_info card %}
+  {% for card_info in card_infos %}
+    {% card_full_info card_info %}
   {% endfor %}
 {% endblock content %}
